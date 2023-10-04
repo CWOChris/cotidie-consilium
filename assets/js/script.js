@@ -22,7 +22,7 @@
 // the page is loaded.
 
 window.onload = function() {
-    var textAreas = document.querySelectorAll("textarea");
+    var textAreas = document.querySelectorAll("textbox");
     var saveButtons = document.querySelectorAll("button");
 
     for (var i = 0; i < textAreas.length; i++) {
@@ -30,7 +30,7 @@ window.onload = function() {
         var storedText = localStorage.getItem(key);
         if (storedText) {
             textAreas[i].value = storedText;
-            document.textAreas[i].write(storedText); //set the attribute to the stored text not working
+            //document.textAreas[i].write(storedText); //trying to get stored text to display onload
         }
         saveButtons[i].addEventListener("click", function() {
             var index = Array.prototype.indexOf.call(textAreas, this.previousElementSibling);
