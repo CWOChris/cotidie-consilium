@@ -28,12 +28,17 @@ currentDateEl.text("Today is: " + formattedDate); // This has to be in the scope
 // I need to make a function that will load the contents of a text area from local storage when
 // the page is loaded.
 
+// For some reason the following code will not make the text entries persist in the text areas on
+// page reload.
+
+
+
 
 
 // I mean, at least this saves to the local storage, amirite?
 
 //0700
-var textArea = document.getElementById("textArea");
+var textArea = document.getElementById("textBox");
 var saveButton = document.getElementById("saveButton");
 
 saveButton.addEventListener("click", function() {
@@ -42,7 +47,7 @@ saveButton.addEventListener("click", function() {
 });
 
 //0800
-var textArea1 = document.getElementById("textArea1");
+var textArea1 = document.getElementById("textBox1");
 var saveButton1 = document.getElementById("saveButton1");
 
 saveButton1.addEventListener("click", function() {
@@ -51,7 +56,7 @@ saveButton1.addEventListener("click", function() {
 });
 
 //0900
-var textArea2 = document.getElementById("textArea2");
+var textArea2 = document.getElementById("textBox2");
 var saveButton2 = document.getElementById("saveButton2");
 
 saveButton2.addEventListener("click", function() {
@@ -60,7 +65,7 @@ saveButton2.addEventListener("click", function() {
 });
 
 //1000
-var textArea3 = document.getElementById("textArea3");
+var textArea3 = document.getElementById("textBox3");
 var saveButton3 = document.getElementById("saveButton3");
 
 saveButton3.addEventListener("click", function() {
@@ -69,7 +74,7 @@ saveButton3.addEventListener("click", function() {
 });
 
 //1100
-var textArea4 = document.getElementById("textArea4");
+var textArea4 = document.getElementById("textBox4");
 var saveButton4 = document.getElementById("saveButton4");
 
 saveButton4.addEventListener("click", function() {
@@ -78,7 +83,7 @@ saveButton4.addEventListener("click", function() {
 });
 
 //1200
-var textArea5 = document.getElementById("textArea5");
+var textArea5 = document.getElementById("textBox5");
 var saveButton5 = document.getElementById("saveButton5");
 
 saveButton5.addEventListener("click", function() {
@@ -87,7 +92,7 @@ saveButton5.addEventListener("click", function() {
 });
 
 //1300
-var textArea6 = document.getElementById("textArea6");
+var textArea6 = document.getElementById("textBox6");
 var saveButton6 = document.getElementById("saveButton6");
 
 saveButton6.addEventListener("click", function() {
@@ -96,7 +101,7 @@ saveButton6.addEventListener("click", function() {
 });
 
 //1400
-var textArea7 = document.getElementById("textArea7");
+var textArea7 = document.getElementById("textBox7");
 var saveButton7 = document.getElementById("saveButton7");
 
 saveButton7.addEventListener("click", function() {
@@ -105,7 +110,7 @@ saveButton7.addEventListener("click", function() {
 });
 
 //1500
-var textArea8 = document.getElementById("textArea8");
+var textArea8 = document.getElementById("textBox8");
 var saveButton8 = document.getElementById("saveButton8");
 
 saveButton8.addEventListener("click", function() {
@@ -114,7 +119,7 @@ saveButton8.addEventListener("click", function() {
 });
 
 //1600
-var textArea9 = document.getElementById("textArea9");
+var textArea9 = document.getElementById("textBox9");
 var saveButton9 = document.getElementById("saveButton9");
 
 saveButton9.addEventListener("click", function() {
@@ -123,7 +128,7 @@ saveButton9.addEventListener("click", function() {
 });
 
 //1700
-var textArea10 = document.getElementById("textArea10");
+var textArea10 = document.getElementById("textBox10");
 var saveButton10 = document.getElementById("saveButton10");
 
 saveButton10.addEventListener("click", function() {
@@ -132,7 +137,7 @@ saveButton10.addEventListener("click", function() {
 });
 
 //1800
-var textArea11 = document.getElementById("textArea11");
+var textArea11 = document.getElementById("textBox11");
 var saveButton11 = document.getElementById("saveButton11");
 
 saveButton11.addEventListener("click", function() {
@@ -143,11 +148,27 @@ saveButton11.addEventListener("click", function() {
 
 
 
-// For some reason the following code will not make the text entries persist in the text areas on
-// page reload.
+document.addEventListener("DOMContentLoaded", function() {
+    var localStorageList = document.getElementById("keyList");
+    for (let i = 0; i < localStorage.length; i++) {
+        var key = localStorage.key(i);
+        var value = localStorage.getItem(key);
+        var listItem = document.createElement("li");
+        listItem.textContent = `${key}: ${value}`;
+        localStorageList.appendChild(listItem);
+    }
+});
+
+
+
+
+
+
+
+
 
 // window.onload = function() {
-//     var textAreas = document.querySelectorAll(".form-control");
+//     var textAreas = document.querySelectorAll("#textbox");
 //     var saveButtons = document.querySelectorAll("button");
 
 //     for (var i = 0; i < textAreas.length; i++) {
