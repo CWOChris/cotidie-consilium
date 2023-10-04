@@ -30,7 +30,7 @@ window.onload = function() {
         var storedText = localStorage.getItem(key);
         if (storedText) {
             textAreas[i].value = storedText;
-            textAreas[i].setAttribute(storedText); //set the attribute to the stored text not working
+            document.textAreas[i].write(storedText); //set the attribute to the stored text not working
         }
         saveButtons[i].addEventListener("click", function() {
             var index = Array.prototype.indexOf.call(textAreas, this.previousElementSibling);
