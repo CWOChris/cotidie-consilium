@@ -18,6 +18,21 @@ currentDateEl.text("Today is: " + formattedDate); // This has to be in the scope
 
 // I need to make a function that will change the text color based on the current time of day
 
+// I need to make a button that will erase all of local storage
+var eraseButton = document.getElementById("eraseButton");
+eraseButton.addEventListener("click", function() {
+    if (typeof(Storage) !== "undefined") {
+        localStorage.clear();
+        alert("Today's calendar has been cleared, enjoy that staycation you rascal!");
+    } else {
+        alert("Unable to delete calendar, there isn't enough disk space to complete this operation.");
+    }
+});
+
+
+
+
+
 
 
 
@@ -25,17 +40,9 @@ currentDateEl.text("Today is: " + formattedDate); // This has to be in the scope
 
 
 
-// I need to make a function that will load the contents of a text area from local storage when
-// the page is loaded.
+// DONE!!! I need to make a function that will load the contents of a text area from local storage when
+// DONE!!! the page is loaded.
 
-// For some reason the following code will not make the text entries persist in the text areas on
-// page reload.
-
-
-
-
-
-// I mean, at least this saves to the local storage, amirite?
 
 //0700
 var textArea = document.getElementById("textBox");
@@ -146,7 +153,7 @@ saveButton11.addEventListener("click", function() {
 });
 
 
-
+// The following code runs a for loop that will load the contents of the key value pairs in local storage
 
 document.addEventListener("DOMContentLoaded", function() {
     var localStorageList = document.getElementById("keyList");
