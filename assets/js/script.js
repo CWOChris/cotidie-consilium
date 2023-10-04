@@ -10,6 +10,7 @@ $(document).ready(function() {
 currentDateEl.text("Today is: " + formattedDate); // This has to be in the scope of the function to work
 });
 // Putting currentDateEl.text(formattedDate); outside of the function doesn't work.
+// DONE!!!
 
 // I need to make a function that will change the background image based on the current time of day
 
@@ -27,18 +28,7 @@ currentDateEl.text("Today is: " + formattedDate); // This has to be in the scope
 // I need to make a function that will load the contents of a text area from local storage when
 // the page is loaded.
 
-window.onload = function() {
-    var textAreas = document.querySelectorAll(".form-control");
-    var saveButtons = document.querySelectorAll("button");
 
-    for (var i = 0; i < textAreas.length; i++) {
-        var key = "textArea" + i;
-        var storedText = localStorage.getItem(key);
-        if (storedText) {
-            textAreas[i].value = storedText;
-        }
-    }
-};
 
 // I mean, at least this saves to the local storage, amirite?
 
@@ -150,3 +140,27 @@ saveButton11.addEventListener("click", function() {
     localStorage.setItem("1800", textSaved11);
 });
 
+
+
+
+// For some reason the following code will not make the text entries persist in the text areas on
+// page reload.
+
+// window.onload = function() {
+//     var textAreas = document.querySelectorAll(".form-control");
+//     var saveButtons = document.querySelectorAll("button");
+
+//     for (var i = 0; i < textAreas.length; i++) {
+//         var key = "textArea" + i;
+//         var storedText = localStorage.getItem(value);
+//         if (storedText) {
+//             textAreas[i].value = storedText;
+//         }
+//         saveButtons[i].addEventListener("click", function() {
+//             var index = Array.prototype.indexOf.call(saveButtons, this);
+//             var key = "textArea" + index;
+//             var textSaved = textAreas[index].value;
+//             localStorage.setItem(key, textSaved);
+//         });
+//     }
+// };
