@@ -42,7 +42,7 @@ window.onload = function() {
 };
 
 
-
+// I mean, at least this saves to the local storage, amirite?
 
 //0700
 var textArea = document.getElementById("textArea");
