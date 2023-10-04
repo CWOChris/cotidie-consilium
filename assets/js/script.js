@@ -5,7 +5,7 @@
 $(document).ready(function() {
     var currentDateEl = $(".currentDate");
     var currentDate = new Date();
-    var formattedDate = currentDate.toLocaleDateString("en-US", { weekday: 'long', month: 'long', day: 'numeric' });
+    var formattedDate = currentDate.toLocaleDateString("en-UK", { weekday: 'long', day: 'numeric', month: 'long', year: 'numeric' });
 
 currentDateEl.text("Today is: " + formattedDate); // This has to be in the scope of the function to work
 });
@@ -28,25 +28,17 @@ currentDateEl.text("Today is: " + formattedDate); // This has to be in the scope
 // the page is loaded.
 
 window.onload = function() {
-    var textAreas = document.querySelectorAll("textbox");
+    var textAreas = document.querySelectorAll(".form-control");
     var saveButtons = document.querySelectorAll("button");
 
     for (var i = 0; i < textAreas.length; i++) {
-        var key = new Date().toISOString() + "-" + i;
+        var key = "textArea" + i;
         var storedText = localStorage.getItem(key);
         if (storedText) {
             textAreas[i].value = storedText;
-            //document.textAreas[i].write(storedText); //trying to get stored text to display onload
         }
-        saveButtons[i].addEventListener("click", function() {
-            var index = Array.prototype.indexOf.call(textAreas, this.previousElementSibling);
-            var key = new Date().toISOString() + "-" + index;
-            var textSaved = textAreas[index].value;
-            localStorage.setItem(key, textSaved);
-        });
     }
 };
-
 
 // I mean, at least this saves to the local storage, amirite?
 
