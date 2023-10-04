@@ -1,0 +1,2 @@
+# cotidie-consilium
+Daily Plan
