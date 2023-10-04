@@ -15,11 +15,11 @@
 
 
 // I need to save the contents of a text area to local storage when the save button is clicked
-var image = document.querySelector("img");
+var button = document.querySelector("button");
 var input = document.querySelector("input");
+button.addEventListener("click", () => {
+    localStorage.setItem("0900", input.value);
+});
 
-
-image.addEventListener("click", function() => {
-    localStorage.setItem("name", input.value);
-    image.src = input.value;
-    });
+console.log(button);
+console.log(input);
