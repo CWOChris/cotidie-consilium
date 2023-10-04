@@ -21,99 +21,22 @@
 // I need to make a function that will load the contents of a text area from local storage when
 // the page is loaded.
 
-//0700
 window.onload = function() {
-    var storedText = localStorage.getItem("0700");
-    if (storedText  !== null) {
-        textArea.value = storedText;
-    }
-};
+    var textAreas = document.querySelectorAll("textarea");
+    var saveButtons = document.querySelectorAll("button");
 
-//0800
-window.onload = function() {
-    var storedText1 = localStorage.getItem("0800");
-    if (storedText1  !== null) {
-        textArea1.value = storedText1;
-    }
-};
-
-//0900
-window.onload = function() {
-    var storedText2 = localStorage.getItem("0900");
-    if (storedText2  !== null) {
-        textArea2.value = storedText2;
-    }
-};
-
-//1000
-window.onload = function() {
-    var storedText3 = localStorage.getItem("1000");
-    if (storedText3  !== null) {
-        textArea3.value = storedText3;
-    }
-};
-
-//1100
-window.onload = function() {
-    var storedText4 = localStorage.getItem("1100");
-    if (storedText4  !== null) {
-        textArea4.value = storedText4;
-    }
-};
-
-//1200
-window.onload = function() {
-    var storedText5 = localStorage.getItem("1200");
-    if (storedText5  !== null) {
-        textArea5.value = storedText5;
-    }
-};
-
-//1300
-window.onload = function() {
-    var storedText6 = localStorage.getItem("1300");
-    if (storedText6  !== null) {
-        textArea6.value = storedText6;
-    }
-};
-
-//1400
-window.onload = function() {
-    var storedText7 = localStorage.getItem("1400");
-    if (storedText7  !== null) {
-        textArea7.value = storedText7;
-    }
-};
-
-//1500
-window.onload = function() {
-    var storedText8 = localStorage.getItem("1500");
-    if (storedText8  !== null) {
-        textArea8.value = storedText8;
-    }
-};
-
-//1600
-window.onload = function() {
-    var storedText9 = localStorage.getItem("1600");
-    if (storedText9  !== null) {
-        textArea9.value = storedText9;
-    }
-};
-
-//1700
-window.onload = function() {
-    var storedText10 = localStorage.getItem("1700");
-    if (storedText10  !== null) {
-        textArea10.value = storedText10;
-    }
-};
-
-//1800
-window.onload = function() {
-    var storedText11 = localStorage.getItem("1800");
-    if (storedText11  !== null) {
-        textArea11.value = storedText11;
+    for (var i = 0; i < textAreas.length; i++) {
+        var key = new Date().toISOString() + "-" + i;
+        var storedText = localStorage.getItem(key);
+        if (storedText) {
+            textAreas[i].value = storedText;
+        }
+        saveButtons[i].addEventListener("click", function() {
+            var index = Array.prototype.indexOf.call(textAreas, this.previousElementSibling);
+            var key = new Date().toISOString() + "-" + index;
+            var textSaved = textAreas[index].value;
+            localStorage.setItem(key, textSaved);
+        });
     }
 };
 
