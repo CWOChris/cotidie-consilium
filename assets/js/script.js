@@ -18,7 +18,7 @@ currentDateEl.text("Today is: " + formattedDate); // This has to be in the scope
 
 // I need to make a function that will change the text color based on the current time of day
 
-// I need to make a button that will erase all of local storage
+// DONE!!! I need to make a button that will erase all of local storage
 var eraseButton = document.getElementById("eraseButton");
 eraseButton.addEventListener("click", function() {
     if (typeof(Storage) !== "undefined") {
@@ -29,20 +29,9 @@ eraseButton.addEventListener("click", function() {
     }
 });
 
-
-
-
-
-
-
-
 // DONE!!! I need to save the contents of a text area to local storage when the save button is clicked.
-
-
-
 // DONE!!! I need to make a function that will load the contents of a text area from local storage when
 // DONE!!! the page is loaded.
-
 
 //0700
 var textArea = document.getElementById("textBox");
