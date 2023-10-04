@@ -1,9 +1,15 @@
 // I need to make a function that will change the class based on the current time of day
 
 
+// DONE!!! I need to make a function that will display the current day and date in the header ('dddd, MMMM Do YYYY')
+$(document).ready(function() {
+    var currentDateEl = $(".currentDate");
+    var currentDate = new Date();
+    var formattedDate = currentDate.toLocaleDateString("en-US", { weekday: 'long', month: 'long', day: 'numeric' });
 
-
-
+currentDateEl.text("Today is: " + formattedDate); // This has to be in the scope of the function to work
+});
+// Putting currentDateEl.text(formattedDate); outside of the function doesn't work.
 
 // I need to make a function that will change the background image based on the current time of day
 
@@ -14,7 +20,7 @@
 
 
 
-// I need to save the contents of a text area to local storage when the save button is clicked.
+// DONE!!! I need to save the contents of a text area to local storage when the save button is clicked.
 
 
 
