@@ -1,6 +1,8 @@
 # cotidie-consilium
 Daily Plan
 
+All background images taken from Wikimedia Commons and are in the public domain.
+
 AS AN employee with a busy schedule
 I WANT to add important events to a daily planner
 SO THAT I can manage my time effectively
