@@ -165,13 +165,8 @@ saveButton11.addEventListener("click", function() {
 
 document.addEventListener("DOMContentLoaded", function() {
     var localStorageList = document.getElementById("keyList");
-    for (let i = 0; i < localStorage.length; i++) {
-        var key = localStorage.key(i);
-        var value = localStorage.getItem(key);
-        var listItem = document.createElement("li");
-        listItem.textContent = `${key}: ${value}`;
-        localStorageList.appendChild(listItem);
-    }
+        
+    }, 25);
 });
 
 
