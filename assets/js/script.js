@@ -30,6 +30,7 @@ eraseButton.addEventListener("click", function() {
     if (typeof(Storage) !== "undefined") {
         localStorage.clear();
         alert("Today's calendar has been cleared, enjoy that staycation you rascal!");
+        location.reload();
     } else {
         alert("Unable to delete calendar, there isn't enough disk space to complete this operation.");
     }
@@ -46,6 +47,7 @@ var saveButton = document.getElementById("saveButton");
 saveButton.addEventListener("click", function() {
     var textSaved = textArea.value;
     localStorage.setItem("0700", textSaved);
+    location.reload();
 });
 
 //0800
@@ -55,6 +57,7 @@ var saveButton1 = document.getElementById("saveButton1");
 saveButton1.addEventListener("click", function() {
     var textSaved1 = textArea1.value;
     localStorage.setItem("0800", textSaved1);
+    location.reload();
 });
 
 //0900
@@ -64,6 +67,7 @@ var saveButton2 = document.getElementById("saveButton2");
 saveButton2.addEventListener("click", function() {
     var textSaved2 = textArea2.value;
     localStorage.setItem("0900", textSaved2);
+    location.reload();
 });
 
 //1000
@@ -73,6 +77,7 @@ var saveButton3 = document.getElementById("saveButton3");
 saveButton3.addEventListener("click", function() {
     var textSaved3 = textArea3.value;
     localStorage.setItem("1000", textSaved3);
+    location.reload();
 });
 
 //1100
@@ -82,6 +87,7 @@ var saveButton4 = document.getElementById("saveButton4");
 saveButton4.addEventListener("click", function() {
     var textSaved4 = textArea4.value;
     localStorage.setItem("1100", textSaved4);
+    location.reload();
 });
 
 //1200
@@ -91,6 +97,7 @@ var saveButton5 = document.getElementById("saveButton5");
 saveButton5.addEventListener("click", function() {
     var textSaved5 = textArea5.value;
     localStorage.setItem("1200", textSaved5);
+    location.reload();
 });
 
 //1300
@@ -100,6 +107,7 @@ var saveButton6 = document.getElementById("saveButton6");
 saveButton6.addEventListener("click", function() {
     var textSaved6 = textArea6.value;
     localStorage.setItem("1300", textSaved6);
+    location.reload();
 });
 
 //1400
@@ -109,6 +117,7 @@ var saveButton7 = document.getElementById("saveButton7");
 saveButton7.addEventListener("click", function() {
     var textSaved7 = textArea7.value;
     localStorage.setItem("1400", textSaved7);
+    location.reload();
 });
 
 //1500
@@ -118,6 +127,7 @@ var saveButton8 = document.getElementById("saveButton8");
 saveButton8.addEventListener("click", function() {
     var textSaved8 = textArea8.value;
     localStorage.setItem("1500", textSaved8);
+    location.reload();
 });
 
 //1600
@@ -127,6 +137,7 @@ var saveButton9 = document.getElementById("saveButton9");
 saveButton9.addEventListener("click", function() {
     var textSaved9 = textArea9.value;
     localStorage.setItem("1600", textSaved9);
+    location.reload();
 });
 
 //1700
@@ -136,6 +147,7 @@ var saveButton10 = document.getElementById("saveButton10");
 saveButton10.addEventListener("click", function() {
     var textSaved10 = textArea10.value;
     localStorage.setItem("1700", textSaved10);
+    location.reload();
 });
 
 //1800
@@ -145,6 +157,7 @@ var saveButton11 = document.getElementById("saveButton11");
 saveButton11.addEventListener("click", function() {
     var textSaved11 = textArea11.value;
     localStorage.setItem("1800", textSaved11);
+    location.reload();
 });
 
 
@@ -187,3 +200,8 @@ document.addEventListener("DOMContentLoaded", function() {
 //         });
 //     }
 // };
+
+
+// WIP3 changes-
+//  -added "location.reload();" to the end of each save button function
+//  -added "location.reload();" to the end of the erase button function
