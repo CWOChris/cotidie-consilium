@@ -226,3 +226,5 @@ $(".event-block").each(function() {
 
 // WIP4 changes-
 //  -added script to display Today's Events in chronological order
+//  -added script to change the color of Today's Events based on the current time of day
+//  =added a color key under Today's Events to delineate the color scheme for past, present, and future events
