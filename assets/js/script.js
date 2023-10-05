@@ -1,13 +1,13 @@
-// I need to make a function that will change the class based on the current time of day
+// DONE!!! I need to make a function that will change the class based on the current time of day
 var rightNow = new Date().getHours();
 $(".hour-block").each(function() {
     var hourBlock = parseInt($(this).find("th").text());
     if (hourBlock < rightNow) {
-        $(this).addClass("bg-secondary");
+        $(this).addClass("bg-secondary text-white");
     } else if (hourBlock === rightNow) {
-        $(this).addClass("bg-warning");
+        $(this).addClass("bg-warning text-white");
     } else {
-        $(this).addClass("bg-success");
+        $(this).addClass("bg-success text-white");
     }
 });
 
@@ -22,9 +22,7 @@ currentDateEl.text("Today is: " + formattedDate); // This has to be in the scope
 // Putting currentDateEl.text(formattedDate); outside of the function doesn't work.
 // DONE!!!
 
-// I need to make a function that will change the background image based on the current time of day
-
-// I need to make a function that will change the text color based on the current time of day
+// DONR!!! I need to make a function that will change the text color based on the current time of day
 
 // DONE!!! I need to make a button that will erase all of local storage
 var eraseButton = document.getElementById("eraseButton");

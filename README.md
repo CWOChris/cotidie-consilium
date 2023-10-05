@@ -1,5 +1,6 @@
 # cotidie-consilium
-Daily Plan
+
+Cotidie Consilium, latin for "Daily Plan"
 
 All background images taken from Wikimedia Commons and are in the public domain.
 
