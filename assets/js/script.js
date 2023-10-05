@@ -46,7 +46,7 @@ var saveButton = document.getElementById("saveButton");
 
 saveButton.addEventListener("click", function() {
     var textSaved = textArea.value;
-    localStorage.setItem("0700", textSaved);
+    localStorage.setItem("07:00", textSaved);
     location.reload();
 });
 
@@ -56,7 +56,7 @@ var saveButton1 = document.getElementById("saveButton1");
 
 saveButton1.addEventListener("click", function() {
     var textSaved1 = textArea1.value;
-    localStorage.setItem("0800", textSaved1);
+    localStorage.setItem("08:00", textSaved1);
     location.reload();
 });
 
@@ -66,7 +66,7 @@ var saveButton2 = document.getElementById("saveButton2");
 
 saveButton2.addEventListener("click", function() {
     var textSaved2 = textArea2.value;
-    localStorage.setItem("0900", textSaved2);
+    localStorage.setItem("09:00", textSaved2);
     location.reload();
 });
 
@@ -76,7 +76,7 @@ var saveButton3 = document.getElementById("saveButton3");
 
 saveButton3.addEventListener("click", function() {
     var textSaved3 = textArea3.value;
-    localStorage.setItem("1000", textSaved3);
+    localStorage.setItem("10:00", textSaved3);
     location.reload();
 });
 
@@ -86,7 +86,7 @@ var saveButton4 = document.getElementById("saveButton4");
 
 saveButton4.addEventListener("click", function() {
     var textSaved4 = textArea4.value;
-    localStorage.setItem("1100", textSaved4);
+    localStorage.setItem("11:00", textSaved4);
     location.reload();
 });
 
@@ -96,7 +96,7 @@ var saveButton5 = document.getElementById("saveButton5");
 
 saveButton5.addEventListener("click", function() {
     var textSaved5 = textArea5.value;
-    localStorage.setItem("1200", textSaved5);
+    localStorage.setItem("12:00", textSaved5);
     location.reload();
 });
 
@@ -106,7 +106,7 @@ var saveButton6 = document.getElementById("saveButton6");
 
 saveButton6.addEventListener("click", function() {
     var textSaved6 = textArea6.value;
-    localStorage.setItem("1300", textSaved6);
+    localStorage.setItem("13:00", textSaved6);
     location.reload();
 });
 
@@ -116,7 +116,7 @@ var saveButton7 = document.getElementById("saveButton7");
 
 saveButton7.addEventListener("click", function() {
     var textSaved7 = textArea7.value;
-    localStorage.setItem("1400", textSaved7);
+    localStorage.setItem("14:00", textSaved7);
     location.reload();
 });
 
@@ -126,7 +126,7 @@ var saveButton8 = document.getElementById("saveButton8");
 
 saveButton8.addEventListener("click", function() {
     var textSaved8 = textArea8.value;
-    localStorage.setItem("1500", textSaved8);
+    localStorage.setItem("15:00", textSaved8);
     location.reload();
 });
 
@@ -136,7 +136,7 @@ var saveButton9 = document.getElementById("saveButton9");
 
 saveButton9.addEventListener("click", function() {
     var textSaved9 = textArea9.value;
-    localStorage.setItem("1600", textSaved9);
+    localStorage.setItem("16:00", textSaved9);
     location.reload();
 });
 
@@ -146,7 +146,7 @@ var saveButton10 = document.getElementById("saveButton10");
 
 saveButton10.addEventListener("click", function() {
     var textSaved10 = textArea10.value;
-    localStorage.setItem("1700", textSaved10);
+    localStorage.setItem("17:00", textSaved10);
     location.reload();
 });
 
@@ -156,10 +156,9 @@ var saveButton11 = document.getElementById("saveButton11");
 
 saveButton11.addEventListener("click", function() {
     var textSaved11 = textArea11.value;
-    localStorage.setItem("1800", textSaved11);
+    localStorage.setItem("18:00", textSaved11);
     location.reload();
 });
-
 
 // The following code runs a for loop that will load the contents of the key value pairs in local storage
 
@@ -170,7 +169,8 @@ document.addEventListener("DOMContentLoaded", function() {
             var key = localStorage.key(i);
             var value = localStorage.getItem(key);
             var listItem = document.createElement("li");
-            listItem.textContent = `${key}: ${value}`;
+            listItem.textContent = `${key}` + `: ` + `${value}`;
+            listItem.setAttribute("class", "list-group-item");
             localStorageList.appendChild(listItem);
         }
         var listArray = Array.from(localStorageList.children);
@@ -182,20 +182,24 @@ document.addEventListener("DOMContentLoaded", function() {
     }, 25);
 });
 
-var rightNow = new Date().getHours();
-$(".event-block").each(function() {
-    var hourBlock = parseInt($(this).find("li").text());
-    if (hourBlock < rightNow) {
-        $(this).addClass("bg-secondary text-white");
-    } else if (hourBlock === rightNow) {
-        $(this).addClass("bg-warning text-white");
-    } else {
-        $(this).addClass("bg-success text-white");
-    }
-});
 
-
-
+function updateEventBlocks() {
+    var rightNow = new Date().getHours();
+    $(".event-block li").each(function() {
+        var hourBlock = parseInt($(this).text().split(":")[0]);
+        $(this).removeClass("bg-secondary text-white", "bg-warning text-white", "bg-success text-white");
+        if (hourBlock < rightNow) {
+            $(this).addClass("bg-secondary text-white");
+        } else if (hourBlock === rightNow) {
+            $(this).addClass("bg-warning text-white");
+        } else {
+            $(this).addClass("bg-success text-white");
+        }
+    });
+}
+setInterval(updateEventBlocks, 20);
+setInterval(console.log("The event blocks have been updated"), 60000);
+updateEventBlocks();
 
 
 
@@ -228,3 +232,7 @@ $(".event-block").each(function() {
 //  -added script to display Today's Events in chronological order
 //  -added script to change the color of Today's Events based on the current time of day
 //  =added a color key under Today's Events to delineate the color scheme for past, present, and future events
+
+// WIP5 changes-
+//  -added function to update color classes in realtime
+//  -added button to change from dark theme to light theme and back again
