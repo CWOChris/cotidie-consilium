@@ -1,5 +1,15 @@
 // I need to make a function that will change the class based on the current time of day
-
+var rightNow = new Date().getHours();
+$(".hour-block").each(function() {
+    var hourBlock = parseInt($(this).find("th").text());
+    if (hourBlock < rightNow) {
+        $(this).addClass("bg-secondary");
+    } else if (hourBlock === rightNow) {
+        $(this).addClass("bg-warning");
+    } else {
+        $(this).addClass("bg-success");
+    }
+});
 
 // DONE!!! I need to make a function that will display the current day and date in the header ('dddd, MMMM Do YYYY')
 $(document).ready(function() {
@@ -13,8 +23,6 @@ currentDateEl.text("Today is: " + formattedDate); // This has to be in the scope
 // DONE!!!
 
 // I need to make a function that will change the background image based on the current time of day
-
-
 
 // I need to make a function that will change the text color based on the current time of day
 
