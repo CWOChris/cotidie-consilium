@@ -236,3 +236,6 @@ updateEventBlocks();
 // WIP5 changes-
 //  -added function to update color classes in realtime
 //  -added button to change from dark theme to light theme and back again
+
+// WIP6 changes-
+//  -apparently there is starter code... starting over...  I'll link to the one I created in the readme.md file
