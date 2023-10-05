@@ -164,8 +164,21 @@ saveButton11.addEventListener("click", function() {
 // The following code runs a for loop that will load the contents of the key value pairs in local storage
 
 document.addEventListener("DOMContentLoaded", function() {
-    var localStorageList = document.getElementById("keyList");
-        
+    setTimeout(function() {
+        var localStorageList = document.getElementById("keyList");
+        for (let i = 0; i < localStorage.length; i++) {
+            var key = localStorage.key(i);
+            var value = localStorage.getItem(key);
+            var listItem = document.createElement("li");
+            listItem.textContent = `${key}: ${value}`;
+            localStorageList.appendChild(listItem);
+        }
+        var listArray = Array.from(localStorageList.children);
+        listArray.sort(function(a, b) {
+            return a.textContent.localeCompare(b.textContent);
+        });
+        localStorageList.innerHTML = "";
+        listArray.forEach((item) => localStorageList.appendChild(item))
     }, 25);
 });
 
@@ -200,3 +213,6 @@ document.addEventListener("DOMContentLoaded", function() {
 // WIP3 changes-
 //  -added "location.reload();" to the end of each save button function
 //  -added "location.reload();" to the end of the erase button function
+
+// WIP4 changes-
+//  -added script to display Today's Events in chronological order
