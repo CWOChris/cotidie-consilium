@@ -182,7 +182,17 @@ document.addEventListener("DOMContentLoaded", function() {
     }, 25);
 });
 
-
+var rightNow = new Date().getHours();
+$(".event-block").each(function() {
+    var hourBlock = parseInt($(this).find("li").text());
+    if (hourBlock < rightNow) {
+        $(this).addClass("bg-secondary text-white");
+    } else if (hourBlock === rightNow) {
+        $(this).addClass("bg-warning text-white");
+    } else {
+        $(this).addClass("bg-success text-white");
+    }
+});
 
 
 
