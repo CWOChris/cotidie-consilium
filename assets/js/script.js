@@ -174,7 +174,7 @@ document.addEventListener("DOMContentLoaded", function() {  // Function that use
         for (let i = 0; i < localStorage.length; i++) {
             var key = localStorage.key(i);  // Variable declared here to make the keys in local storage available to the for loop.
             var value = localStorage.getItem(key);  // Variable declared here to make the values in local storage available to the for loop.
-            var listItem = document.createElement("li");  // Variable declared here to make the list items available to the for loop.
+            var listItem = document.createElement("li");  // Variable declared here to make the creation of the list items available to the for loop.
             listItem.textContent = `${key}` + `: ` + `${value}`;  // I thought I needed to split these apart to make the class changes work with the parseInt, but I don't believe that is the case...
             listItem.setAttribute("class", "list-group-item");  // Added this setAttribute to make the class changes work later on.
             localStorageList.appendChild(listItem);
